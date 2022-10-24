@@ -5958,7 +5958,7 @@
             requires: "foam",
             effect() {
                 tech.isFastFoam = true
-                tech.foamGravity = -0.0003
+                tech.foamGravity = -0.000000000000000000008
             },
             remove() {
                 tech.isFastFoam = false;
@@ -5967,18 +5967,18 @@
         },
         {
             name: "surface tension",
-            description: "<strong>+43%</strong> <strong>foam</strong> <strong class='color-d'>damage</strong>",
+            description: "<strong>+999%</strong> <strong>foam</strong> <strong class='color-d'>damage</strong>",
             isGunTech: true,
             maxCount: 9,
             count: 0,
-            frequency: 2,
-            frequencyDefault: 2,
+            frequency: 5,
+            frequencyDefault: 5,
             allowed() {
                 return tech.haveGunCheck("foam") || tech.isFoamBotUpgrade || tech.isFoamShot || tech.isFoamBall || tech.isFoamMine
             },
             requires: "foam",
             effect() {
-                tech.foamDamage += 0.011 * 0.43
+                tech.foamDamage += 0.10989
             },
             remove() {
                 tech.foamDamage = 0.011;
@@ -6017,7 +6017,7 @@
             requires: "foam, not non-renewables",
             ammoLost: 0,
             effect() {
-                b.guns[8].ammoPack = b.guns[8].ammoPack * 12;
+                b.guns[8].ammoPack = b.guns[8].ammoPack * 90;
                 this.ammoLost = b.guns[8].ammo
                 b.guns[8].ammo = 0
                 simulation.updateGunHUD()
@@ -6311,7 +6311,7 @@
             frequency: 1,
             frequencyDefault: 1,
             allowed() {
-                return ((tech.haveGunCheck("wave") && tech.infiniteWaveAmmo !== 1) || tech.haveGunCheck("laser") || (tech.haveGunCheck("harpoon") && !tech.isRailGun)) && !tech.isEnergyNoAmmo
+                return ((tech.haveGunCheck("Super Wave") && tech.infiniteWaveAmmo !== 1) || tech.haveGunCheck("laser") || (tech.haveGunCheck("harpoon") && !tech.isRailGun)) && !tech.isEnergyNoAmmo
             },
             requires: "harpoon, laser, wave, frequency, not railgun, non-renewables",
             effect() {
@@ -6434,7 +6434,7 @@
             name: "lens",
             description: "<strong>+150%</strong> <strong class='color-laser'>laser</strong> gun <strong class='color-d'>damage</strong> if it passes<br>through a revolving <strong>90°</strong> arc circular lens", //<span style='font-size: 125%;'>π</span> / 2</strong>
             isGunTech: true,
-            maxCount: 1,
+            maxCount: 2,
             count: 0,
             frequency: 2,
             frequencyDefault: 2,
@@ -6446,7 +6446,7 @@
                 tech.isLaserLens = true
                 b.guns[11].chooseFireMethod()
                 // if (this.count > 0) b.guns[11].lensDamageOn += 20 * Math.PI / 180
-                // b.guns[11].arcRange = 0.78
+                // b.guns[11].arcRange = 1
             },
             remove() {
                 tech.isLaserLens = false
@@ -6477,8 +6477,8 @@
             }
         },
         {
-            name: "specular reflection",
-            description: "<strong>+2</strong> <strong class='color-laser'>laser</strong> beam reflections",
+            name: "Ultra Specular reflection",
+            description: "<strong>+9</strong> <strong class='color-laser'>laser</strong> beam reflections",
             isGunTech: true,
             maxCount: 3,
             count: 0,
@@ -6489,7 +6489,7 @@
             },
             requires: "laser, not diffuse beam, pulse, or slow light",
             effect() {
-                tech.laserReflections += 2;
+                tech.laserReflections += 9;
             },
             remove() {
                 tech.laserReflections = 2;
@@ -6557,7 +6557,7 @@
             },
             requires: "laser gun, diffuse beam",
             effect() {
-                tech.wideLaser += 2
+                tech.wideLaser += 9
                 b.guns[11].chooseFireMethod()
             },
             remove() {
@@ -6629,8 +6629,8 @@
             },
             requires: "laser, not pulse, infrared diode",
             effect() {
-                tech.laserDrain *= 0.75
-                tech.laserDamage *= 1.25
+                tech.laserDrain *= 0.5
+                tech.laserDamage *= 7
                 tech.laserColor = "rgb(0, 11, 255)"
                 tech.laserColorAlpha = "rgba(0, 11, 255,0.5)"
             },
@@ -6643,7 +6643,7 @@
         },
         {
             name: "free-electron laser",
-            description: "<strong>–250%</strong> <strong class='color-laser'>laser</strong> <strong class='color-f'>energy</strong> efficiency<br><strong>+200%</strong> <strong class='color-laser'>laser</strong> <strong class='color-d'>damage</strong>",
+            description: "<strong>–100%</strong> <strong class='color-laser'>laser</strong> <strong class='color-f'>energy</strong> efficiency<br><strong>+200%</strong> <strong class='color-laser'>laser</strong> <strong class='color-d'>damage</strong>",
             isGunTech: true,
             maxCount: 1,
             count: 0,
@@ -6654,7 +6654,7 @@
             },
             requires: "laser, not pulse, infrared diode",
             effect() {
-                tech.laserDrain *= 1 + 2.5 //250% more drain
+                tech.laserDrain *= 1 + 1 //250% more drain
                 tech.laserDamage *= 1 + 2 //190% more damage
                 tech.laserColor = "#83f"
                 tech.laserColorAlpha = "rgba(136, 51, 255,0.5)"
