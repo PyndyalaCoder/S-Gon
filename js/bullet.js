@@ -6654,10 +6654,10 @@ const b = {
             }
         },
         {
-            name: "foam", //8
-            description: "spray bubbly foam that <strong>sticks</strong> to mobs<br><strong class='color-s'>slows</strong> mobs and does <strong class='color-d'>damage</strong> over time",
+            name: "Dark Flame", //8
+            description: "spray Black flames that <strong>sticks</strong> to mobs<br><strong class='color-s'>slows</strong> mobs and does <strong class='color-d'>damage</strong> over time",
             ammo: 0,
-            ammoPack: 24, //set in froth flotation
+            ammoPack: Infinity, //set in froth flotation
             have: false,
             charge: 0,
             isDischarge: false,
@@ -6673,8 +6673,8 @@ const b = {
             doStream() {},
             fireStream() {
                 const spread = (input.down ? 0.04 : 0.3) * (Math.random() - 0.5)
-                const radius = 5 + 8 * Math.random() + (tech.isAmmoFoamSize && this.ammo < 300) * 12
-                const SPEED = (input.down ? 1.2 : 1) * Math.max(2, 14 - radius * 0.25)
+                const radius = 35
+                const SPEED = 20
                 const dir = m.angle + 0.15 * (Math.random() - 0.5)
                 const velocity = {
                     x: SPEED * Math.cos(dir),
@@ -6685,7 +6685,7 @@ const b = {
                     y: m.pos.y + 30 * Math.sin(m.angle)
                 }
                 b.foam(position, Vector.rotate(velocity, spread), radius)
-                m.fireCDcycle = m.cycle + Math.floor(1.5 * b.fireCDscale);
+                m.fireCDcycle = 0;
             },
             doCharges() {
                 if (this.charge > 0) {
@@ -6725,8 +6725,8 @@ const b = {
             },
             fireCharges() {
                 const spread = (input.down ? 0.04 : 0.3) * (Math.random() - 0.5)
-                const radius = 5 + 8 * Math.random() + (tech.isAmmoFoamSize && this.ammo < 300) * 12
-                const SPEED = (input.down ? 1.2 : 1) * Math.max(2, 14 - radius * 0.25)
+                const radius = 35
+                const SPEED = 20
                 const dir = m.angle + 0.15 * (Math.random() - 0.5)
                 const velocity = {
                     x: SPEED * Math.cos(dir),
