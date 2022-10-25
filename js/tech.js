@@ -662,7 +662,7 @@
         },
         {
             name: "squirrel-cage rotor",
-            description: "<strong>+30%</strong> <strong>movement</strong> and <strong>jumping</strong><br><strong>–5%</strong> <strong class='color-defense'>defense</strong>",
+            description: "<strong>Faster </strong> <strong>movement</strong> and <strong>jumping</strong><br><strong>–5%</strong> <strong class='color-defense'>defense</strong>",
             maxCount: 9,
             count: 0,
             frequency: 1,
@@ -670,8 +670,8 @@
             allowed() { return true },
             requires: "",
             effect() { // good with melee builds, content skipping builds
-                tech.squirrelFx += 0.25;
-                tech.squirrelJump += 0.1;
+                tech.squirrelFx += 1;
+                tech.squirrelJump += 0.75;
                 m.setMovement()
             },
             remove() {
@@ -5889,14 +5889,14 @@
         },
         {
             name: "electrostatic induction",
-            description: "<strong>foam</strong> bubbles are electrically charged<br>causing <strong>attraction</strong> to nearby <strong>mobs</strong>",
+            description: "<strong>flame</strong> bubbles are electrically charged<br>causing <strong>attraction</strong> to nearby <strong>mobs</strong>",
             isGunTech: true,
             maxCount: 1,
             count: 0,
             frequency: 2,
             frequencyDefault: 2,
             allowed() {
-                return !tech.isBulletTeleport && (tech.haveGunCheck("foam") || tech.isFoamBotUpgrade || tech.isFoamShot || tech.isFoamBall || tech.isFoamMine)
+                return !tech.isBulletTeleport && (tech.haveGunCheck("Dark Flame") || tech.isFoamBotUpgrade || tech.isFoamShot || tech.isFoamBall || tech.isFoamMine)
             },
             requires: "foam, not uncertainty",
             effect() {
@@ -5908,14 +5908,14 @@
         },
         {
             name: "uncertainty principle",
-            description: "<strong>foam</strong> and <strong>wave</strong> positions are erratic<br><strong>+53%</strong> <strong>foam</strong> and <strong>wave</strong> <strong class='color-d'>damage</strong>",
+            description: "<strong>flame</strong> and <strong>wave</strong> positions are erratic<br><strong>+53%</strong> <strong>foam</strong> and <strong>wave</strong> <strong class='color-d'>damage</strong>",
             isGunTech: true,
             maxCount: 1,
             count: 0,
             frequency: 1,
             frequencyDefault: 1,
             allowed() {
-                return (!tech.isFoamAttract && (tech.haveGunCheck("foam") || tech.isFoamBotUpgrade || tech.isFoamShot || tech.isFoamBall || tech.isFoamMine)) || (tech.haveGunCheck("wave") && !tech.is360Longitudinal)
+                return (!tech.isFoamAttract && (tech.haveGunCheck("Dark Flame") || tech.isFoamBotUpgrade || tech.isFoamShot || tech.isFoamBall || tech.isFoamMine)) || (tech.haveGunCheck("wave") && !tech.is360Longitudinal)
             },
             requires: "foam, wave, not isotropic, electrostatic induction",
             effect() {
@@ -5934,7 +5934,7 @@
             frequency: 2,
             frequencyDefault: 2,
             allowed() {
-                return tech.haveGunCheck("foam") || tech.isFoamBall || tech.isFoamBotUpgrade || tech.isFoamShot || tech.isSporeWorm || tech.isSporeFlea || tech.isFoamMine
+                return tech.haveGunCheck("Dark Flame") || tech.isFoamBall || tech.isFoamBotUpgrade || tech.isFoamShot || tech.isSporeWorm || tech.isSporeFlea || tech.isFoamMine
             },
             requires: "foam, spores, worms, fleas",
             effect() {
@@ -5953,7 +5953,7 @@
             frequency: 2,
             frequencyDefault: 2,
             allowed() {
-                return tech.haveGunCheck("foam") || tech.isFoamBotUpgrade || tech.isFoamShot || tech.isFoamBall || tech.isFoamMine
+                return tech.haveGunCheck("Dark Flame") || tech.isFoamBotUpgrade || tech.isFoamShot || tech.isFoamBall || tech.isFoamMine
             },
             requires: "foam",
             effect() {
@@ -5974,7 +5974,7 @@
             frequency: 5,
             frequencyDefault: 5,
             allowed() {
-                return tech.haveGunCheck("foam") || tech.isFoamBotUpgrade || tech.isFoamShot || tech.isFoamBall || tech.isFoamMine
+                return tech.haveGunCheck("Dark Flame") || tech.isFoamBotUpgrade || tech.isFoamShot || tech.isFoamBall || tech.isFoamMine
             },
             requires: "foam",
             effect() {
@@ -5993,7 +5993,7 @@
             frequency: 2,
             frequencyDefault: 2,
             allowed() {
-                return tech.haveGunCheck("foam")
+                return tech.haveGunCheck("Dark Flame")
             },
             requires: "foam",
             effect() {
