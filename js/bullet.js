@@ -6690,7 +6690,7 @@ const b = {
             doCharges() {
                 if (this.charge > 0) {
                     //draw charge level
-                    ctx.fillStyle = "rgba(0,50,50,0.3)";
+                    ctx.fillStyle = "rgba(255, 0, 0, 1)";
                     ctx.beginPath();
                     const radius = 5 * Math.sqrt(this.charge)
                     const mag = 11 + radius
