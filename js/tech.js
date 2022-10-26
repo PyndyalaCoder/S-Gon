@@ -6005,14 +6005,14 @@
         },
         {
             name: "ideal gas law",
-            description: `remove <strong>all</strong> current <strong>foam</strong> <strong class='color-ammo'>ammo</strong><br><strong>+1200%</strong> <strong>foam</strong> <strong class='color-ammo'>ammo</strong> per ${powerUps.orb.ammo(1)}`,
+            description: `remove <strong>all</strong> current <strong>flame</strong> <strong class='color-ammo'>ammo</strong><br><strong>+1200%</strong> <strong>foam</strong> <strong class='color-ammo'>ammo</strong> per ${powerUps.orb.ammo(1)}`,
             isGunTech: true,
             maxCount: 1,
             count: 0,
             frequency: 2,
             frequencyDefault: 2,
             allowed() {
-                return tech.haveGunCheck("foam") && !tech.isEnergyNoAmmo
+                return tech.haveGunCheck("Dark Flame") && !tech.isEnergyNoAmmo
             },
             requires: "foam, not non-renewables",
             ammoLost: 0,
@@ -6032,14 +6032,14 @@
         },
         {
             name: "pressure vessel",
-            description: "build up <strong>charge</strong> while firing <strong>foam</strong> gun<br>after firing <strong>discharge</strong> <strong>foam</strong> bubbles",
+            description: "build up <strong>charge</strong> while firing <strong>flame</strong> gun<br>after firing <strong>discharge</strong> <strong>foam</strong> bubbles",
             isGunTech: true,
             maxCount: 1,
             count: 0,
             frequency: 2,
             frequencyDefault: 2,
             allowed() {
-                return tech.haveGunCheck("foam")
+                return tech.haveGunCheck("Dark Flame")
             },
             requires: "foam",
             effect() {
@@ -6061,7 +6061,7 @@
             frequency: 2,
             frequencyDefault: 2,
             allowed() {
-                return tech.blockDamage > 0.075 || tech.isRailGun || (tech.haveGunCheck("foam") && tech.isFoamPressure) || tech.isTokamak || tech.isPulseLaser || tech.isPlasmaBall
+                return tech.blockDamage > 0.075 || tech.isRailGun || (tech.haveGunCheck("Dark Flame") && tech.isFoamPressure) || tech.isTokamak || tech.isPulseLaser || tech.isPlasmaBall
             },
             requires: "mass driver, railgun, foam, pressure vessel, pulse, tokamak, plasma ball",
             effect() {
@@ -6562,7 +6562,7 @@
             },
             remove() {
                 if (tech.isWideLaser) {
-                    tech.wideLaser = 3
+                    tech.wideLaser = 9
                 } else {
                     tech.wideLaser = 0
                 }
@@ -6631,8 +6631,8 @@
             effect() {
                 tech.laserDrain *= 0.5
                 tech.laserDamage *= 7
-                tech.laserColor = "rgb(0, 11, 255)"
-                tech.laserColorAlpha = "rgba(0, 11, 255,0.5)"
+                tech.laserColor = "rgba(179, 184, 30, 0.91)"
+                tech.laserColorAlpha = "rgba(179, 184, 30, 0.91)"
             },
             remove() {
                 tech.laserDrain = 0.0018;
