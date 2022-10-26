@@ -6519,9 +6519,9 @@
             }
         },
         {
-            name: "diffuse beam",
+            name: "Rose diffuse beam",
             link: `<a target="_blank" href='https://en.wikipedia.org/wiki/Diffuser_(optics)' class="link">diffuse beam</a>`,
-            description: "<strong class='color-laser'>laser</strong> gun beam is <strong>wider</strong> and doesn't <strong>reflect</strong><br><strong>+220%</strong> <strong class='color-laser'>laser</strong> <strong class='color-d'>damage</strong>",
+            description: "<strong class='color-laser'>laser</strong> gun beam is <strong>wider</strong> and doesn't <strong>reflect</strong><br><strong>+220%</strong> <strong class='color-laser'>laser</strong> <strong class='color-d'>damage</strong>. Color is a rose pink",
             isGunTech: true,
             maxCount: 1,
             count: 0,
@@ -6535,6 +6535,8 @@
                 if (tech.wideLaser === 0) tech.wideLaser = 3
                 tech.isWideLaser = true;
                 b.guns[11].chooseFireMethod()
+                tech.laserColor = "rgba(255, 0, 255, 1)"
+                tech.laserColorAlpha = "rgba(255, 0, 255, 1)"
             },
             remove() {
                 if (tech.isWideLaser) {
@@ -6617,8 +6619,8 @@
             }
         },
         {
-            name: "dye laser",
-            description: "<strong>+25%</strong> <strong class='color-laser'>laser</strong> <strong class='color-f'>energy</strong> efficiency<br><strong>+25%</strong> <strong class='color-laser'>laser</strong> <strong class='color-d'>damage</strong>",
+            name: "Green Gold laser",
+            description: "<strong>+25%</strong> <strong class='color-laser'>laser</strong> <strong class='color-f'>energy</strong> efficiency<br><strong>+25%</strong> <strong class='color-laser'>laser</strong> <strong class='color-d'>damage</strong>. Color of laser changed to greenish gold",
             isGunTech: true,
             maxCount: 1,
             count: 0,
