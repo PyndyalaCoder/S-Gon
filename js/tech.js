@@ -6392,8 +6392,8 @@
             }
         },
         {
-            name: "relativistic momentum",
-            description: "<strong class='color-laser'>lasers</strong> push <strong>mobs</strong> and <strong class='color-block'>blocks</strong>",
+            name: "Dark relativistic momentum",
+            description: "<strong class='color-laser'>lasers</strong> push <strong>mobs</strong> and <strong class='color-block'>blocks</strong>. Color of laser is changed to a midnight black.",
             isGunTech: true,
             maxCount: 1,
             count: 0,
@@ -6405,6 +6405,8 @@
             requires: "laser, not pulse",
             effect() {
                 tech.isLaserPush = true;
+                tech.laserColor = "rgba(0, 0, 0, 1)"
+                tech.laserColorAlpha = "rgba(0, 0, 0, 1)"
             },
             remove() {
                 tech.isLaserPush = false;
@@ -6478,7 +6480,7 @@
         },
         {
             name: "Ultra Specular reflection",
-            description: "<strong>+9</strong> <strong class='color-laser'>laser</strong> beam reflections",
+            description: "<strong>+200</strong> <strong class='color-laser'>laser</strong> beam reflections",
             isGunTech: true,
             maxCount: 3,
             count: 0,
@@ -6489,7 +6491,7 @@
             },
             requires: "laser, not diffuse beam, pulse, or slow light",
             effect() {
-                tech.laserReflections += 9;
+                tech.laserReflections += 200;
             },
             remove() {
                 tech.laserReflections = 2;
