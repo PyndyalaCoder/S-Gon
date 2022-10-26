@@ -6675,6 +6675,8 @@ const b = {
                 const spread = (input.down ? 0.04 : 0.3) * (Math.random() - 0.5)
                 const radius = 35
                 const SPEED = 20
+		ctx.fillStyle = "rgba(255, 0, 0, 1)";
+                ctx.beginPath();
                 const dir = m.angle + 0.15 * (Math.random() - 0.5)
                 const velocity = {
                     x: SPEED * Math.cos(dir),
@@ -6700,7 +6702,7 @@ const b = {
                     if (this.isDischarge && m.cycle % 2) {
                         const spread = (input.down ? 0.04 : 0.5) * (Math.random() - 0.5)
                         const radius = 5 + 8 * Math.random() + (tech.isAmmoFoamSize && this.ammo < 300) * 12
-                        const SPEED = (input.down ? 1.2 : 1) * 10 - radius * 0.4 + Math.min(5, Math.sqrt(this.charge));
+                        const SPEED = 20;
                         const dir = m.angle + 0.15 * (Math.random() - 0.5)
                         const velocity = {
                             x: SPEED * Math.cos(dir),
@@ -6712,13 +6714,13 @@ const b = {
                         }
                         b.foam(position, Vector.rotate(velocity, spread), radius)
                         this.charge -= 0.75
-                        m.fireCDcycle = m.cycle + 2; //disable firing and adding more charge until empty
+                        m.fireCDcycle = 0
                     } else if (!input.fire) {
                         this.isDischarge = true;
                     }
                 } else {
                     if (this.isDischarge) {
-                        m.fireCDcycle = m.cycle + Math.floor(25 * b.fireCDscale);
+                        m.fireCDcycle = 0;
                     }
                     this.isDischarge = false
                 }
