@@ -5541,11 +5541,15 @@ const b = {
                     m.fireCDcycle = 0
                     if (tech.isShotgunImmune && m.immuneCycle < m.cycle + Math.floor(60 * b.fireCDscale)) m.immuneCycle = m.cycle + Math.floor(60 * b.fireCDscale); //player is immune to damage for 30 cycles
                     knock = -0.04
+		    tech.laserDrain = 0.1
+		
                 } else {
                     m.fireCDcycle = 0
                     if (tech.isShotgunImmune && m.immuneCycle < m.cycle + Math.floor(47 * b.fireCDscale)) m.immuneCycle = m.cycle + Math.floor(47 * b.fireCDscale); //player is immune to damage for 30 cycles
                     spread = 3
                     knock = -0.04
+	            tech.laserDrain = 0.1
+		
                 }
 
                 if (tech.isShotgunReversed) {
