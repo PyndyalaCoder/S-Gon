@@ -4332,14 +4332,14 @@
         {
             name: "spin-statistics",
             link: `<a target="_blank" href='https://en.wikipedia.org/wiki/Spin%E2%80%93statistics_theorem' class="link">spin-statistics</a>`,
-            description: "after firing the <strong>shotgun</strong> you are <strong>invulnerable</strong><br>shotgun has <strong>50%</strong> fewer shots",
+            description: "after firing the <strong>pull gun</strong> you are <strong>invulnerable</strong><br>shotgun has <strong>50%</strong> fewer shots",
             isGunTech: true,
             maxCount: 1,
             count: 0,
             frequency: 2,
             frequencyDefault: 2,
             allowed() {
-                return tech.haveGunCheck("shotgun")
+                return tech.haveGunCheck("Pull Gun")
             },
             requires: "shotgun",
             effect() {
@@ -4347,7 +4347,7 @@
 
                 //cut current ammo by 1/2
                 for (i = 0, len = b.guns.length; i < len; i++) { //find which gun 
-                    if (b.guns[i].name === "shotgun") {
+                    if (b.guns[i].name === "Pull Gun") {
                         b.guns[i].ammo = Math.ceil(b.guns[i].ammo * 0.5);
                         b.guns[i].ammoPack = b.guns[i].defaultAmmoPack * 0.5
                         break;
@@ -4359,7 +4359,7 @@
                 if (tech.isShotgunImmune) {
                     tech.isShotgunImmune = false;
                     for (i = 0, len = b.guns.length; i < len; i++) { //find which gun 
-                        if (b.guns[i].name === "shotgun") {
+                        if (b.guns[i].name === "Pull Gun") {
                             b.guns[i].ammoPack = b.guns[i].defaultAmmoPack;
                             b.guns[i].ammo = Math.ceil(b.guns[i].ammo * 2);
                             break;
@@ -5868,7 +5868,7 @@
             isNonRefundable: true,
             requires: "at least 2 guns, foam gun, bot upgrades, fractionation, pressure vessel",
             allowed() {
-                return b.inventory.length > 1 && tech.haveGunCheck("foam", false) && !b.hasBotUpgrade() && !tech.isAmmoFoamSize && !tech.isFoamPressure
+                return b.inventory.length > 1 && tech.haveGunCheck("Dark Flame", false) && !b.hasBotUpgrade() && !tech.isAmmoFoamSize && !tech.isFoamPressure
             },
             effect() {
                 tech.giveTech("foam-bot upgrade")
@@ -5920,6 +5920,8 @@
             requires: "foam, wave, not isotropic, electrostatic induction",
             effect() {
                 tech.isBulletTeleport = true
+                tech.foamColor = "rgba(255, 0, 0)"
+                tech.foamColorAlpha = "rgba(255, 0, 0)"
             },
             remove() {
                 tech.isBulletTeleport = false;
