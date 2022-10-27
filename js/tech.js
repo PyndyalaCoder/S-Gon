@@ -6542,6 +6542,7 @@
                 tech.laserColor = "rgba(255, 0, 255, 1)"
                 tech.laserColorAlpha = "rgba(255, 0, 255, 1)"
                 tech.laserDrain = 0
+                tech.laserDamage *= 90
             },
             remove() {
                 if (tech.isWideLaser) {
@@ -6564,7 +6565,8 @@
             },
             requires: "laser gun, diffuse beam",
             effect() {
-                tech.wideLaser += 9
+                tech.wideLaser += 20
+                tech.laserDamage += 30
                 b.guns[11].chooseFireMethod()
             },
             remove() {
@@ -6578,7 +6580,7 @@
         },
         {
             name: "slow light",
-            description: "<strong class='color-laser'>laser</strong> gun beam is <strong>spread</strong> into your recent <strong>past</strong><br><strong>+300%</strong> total beam <strong class='color-d'>damage</strong>",
+            description: "10 times more damage. <strong class='color-laser'>laser</strong> gun beam is <strong>spread</strong> into your recent <strong>past</strong><br><strong>+300%</strong> total beam <strong class='color-d'>damage</strong>",
             isGunTech: true,
             maxCount: 9,
             count: 0,
@@ -6592,6 +6594,7 @@
                 // this.description = `add 5 more <strong>laser</strong> beams into into your past`
                 tech.historyLaser++
                 b.guns[11].chooseFireMethod()
+                tech.laserDamage *= 10
             },
             remove() {
                 if (tech.historyLaser) {
