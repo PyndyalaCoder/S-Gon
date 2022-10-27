@@ -6541,6 +6541,7 @@
                 b.guns[11].chooseFireMethod()
                 tech.laserColor = "rgba(255, 0, 255, 1)"
                 tech.laserColorAlpha = "rgba(255, 0, 255, 1)"
+                tech.laserDrain = 0
             },
             remove() {
                 if (tech.isWideLaser) {
@@ -6687,6 +6688,9 @@
             effect() {
                 tech.isPulseLaser = true;
                 b.guns[11].chooseFireMethod()
+                tech.laserDamage *= 1 + 2 //190% more damage
+                tech.laserColor = "rgba(128,0,128)"
+                tech.laserColorAlpha = "rgba(128,0,128)"
             },
             remove() {
                 if (tech.isPulseLaser) {
