@@ -6299,7 +6299,7 @@
             },
             remove() {
                 tech.isHarpoonPowerUp = false
-                tech.harpoonDensity = 0.004
+                tech.harpoonDensity = 0.1
             }
         },
         {
@@ -7909,7 +7909,7 @@
         },
         {
             name: "charmed baryons",
-            description: `<strong>–33%</strong> <strong>movement</strong> and <strong>jumping</strong><br><strong class='color-worm'>wormholes</strong> drain <strong>zero</strong> <strong class='color-f'>energy</strong>`,
+            description: `<strong>+100%</strong> <strong>movement</strong> and <strong>jumping</strong><br><strong class='color-worm'>wormholes</strong> drain <strong>zero</strong> <strong class='color-f'>energy</strong>`,
             isFieldTech: true,
             maxCount: 1,
             count: 0,
@@ -7921,8 +7921,8 @@
             requires: "wormhole, not affine connection",
             effect() {
                 tech.isFreeWormHole = true
-                tech.baseFx *= 0.66
-                tech.baseJumpForce *= 0.66
+                tech.baseFx *= 2
+                tech.baseJumpForce *= 2
                 m.setMovement()
             },
             //also removed in m.setHoldDefaults() if player switches into a bad field
