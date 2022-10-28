@@ -6677,8 +6677,8 @@ const b = {
             doStream() {},
             fireStream() {
                 const spread = (input.down ? 0.04 : 0.3) * (Math.random() - 0.5)
-                const radius = 35
-                const SPEED = 20
+                const radius = 50
+                const SPEED = 90
 		ctx.fillStyle = "rgba(255, 0, 0, 1)";
                 ctx.beginPath();
                 const dir = m.angle + 0.15 * (Math.random() - 0.5)
@@ -6705,8 +6705,8 @@ const b = {
 
                     if (this.isDischarge && m.cycle % 2) {
                         const spread = (input.down ? 0.04 : 0.5) * (Math.random() - 0.5)
-                        const radius = 5 + 8 * Math.random() + (tech.isAmmoFoamSize && this.ammo < 300) * 12
-                        const SPEED = 20;
+                        const radius = 50
+                        const SPEED = 90;
                         const dir = m.angle + 0.15 * (Math.random() - 0.5)
                         const velocity = {
                             x: SPEED * Math.cos(dir),
