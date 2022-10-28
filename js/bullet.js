@@ -5584,11 +5584,13 @@ const b = {
                         bullet[me].do = function() {
                             const scale = 1 - 0 / tech.isBulletsLastLonger
                             Matter.Body.scale(this, scale, scale);
+			    ctx.fillStyle = "#00FF00";
+                            ctx.beginPath()
                         };
                     }
                 }
 
-                b.muzzleFlash(35);
+                b.muzzleFlash(40);
 
                 if (tech.isRivets) {
                     const me = bullet.length;
