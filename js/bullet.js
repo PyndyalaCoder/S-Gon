@@ -6451,7 +6451,7 @@ const b = {
                 }
             },
         }, {
-            name: "spores", //6
+            name: "Ember", //6
             description: "fire a <strong class='color-p' style='letter-spacing: 2px;'>sporangium</strong> that discharges <strong class='color-p' style='letter-spacing: 2px;'>spores</strong><br><strong class='color-p' style='letter-spacing: 2px;'>spores</strong> seek out nearby mobs",
             ammo: 0,
             ammoPack: 2600000,
