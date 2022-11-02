@@ -5980,7 +5980,7 @@ const b = {
             do() {},
             do360Longitudinal() {
                 if (!m.isBodiesAsleep) {
-                    ctx.strokeStyle = "rgba(0,0,0,0.6)" //"000";
+                    ctx.strokeStyle = "rgba(255,0,0)";
                     ctx.lineWidth = 2 * tech.wavePacketDamage
                     ctx.beginPath();
                     const end = 700 * Math.sqrt(tech.isBulletsLastLonger) * Math.pow(0.93, tech.waveReflections) // / Math.sqrt(tech.waveReflections * 0.5) //should equal about 1060
@@ -6076,7 +6076,7 @@ const b = {
                 }
             },
             fire360Longitudinal() {
-                m.fireCDcycle = m.cycle + Math.floor((input.down ? 4 : 8) * b.fireCDscale * tech.infiniteWaveAmmo); // cool down
+                m.fireCDcycle = 0
                 this.waves.push({
                     position: { x: m.pos.x, y: m.pos.y, },
                     radius: 900,
@@ -6087,7 +6087,7 @@ const b = {
             },
             doLongitudinal() {
                 if (!m.isBodiesAsleep) {
-                    ctx.strokeStyle = "rgba(0,0,0,0.6)" //"000";
+                    ctx.strokeStyle = "rgba(255,0,0)" ;
                     ctx.lineWidth = 2 * tech.wavePacketDamage
                     ctx.beginPath();
                     // const end = 1100 * tech.isBulletsLastLonger / Math.sqrt(tech.waveReflections * 0.5) //should equal about  1767
@@ -6541,7 +6541,7 @@ const b = {
                         }
                     }
                     //draw green glow
-                    ctx.fillStyle = "rgba(0,200,125,0.16)";
+                    ctx.fillStyle = "rgba(255,0,0)";
                     ctx.beginPath();
                     ctx.arc(this.position.x, this.position.y, this.maxRadius, 0, 2 * Math.PI);
                     ctx.fill();
@@ -6572,7 +6572,7 @@ const b = {
                         if (this.radius > this.maxRadius) this.endCycle = 0;
                     }
                     //draw green glow
-                    ctx.fillStyle = "rgba(0,200,125,0.16)";
+                    ctx.fillStyle = "rgba(255,0,0)";
                     ctx.beginPath();
                     ctx.arc(this.position.x, this.position.y, this.maxRadius, 0, 2 * Math.PI);
                     ctx.fill();
