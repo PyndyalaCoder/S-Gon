@@ -5468,7 +5468,7 @@
             frequency: 2,
             frequencyDefault: 2,
             allowed() {
-                return tech.haveGunCheck("spores")
+                return tech.haveGunCheck("Ember")
             },
             requires: "spores",
             effect() {
@@ -5488,7 +5488,7 @@
             frequency: 2,
             frequencyDefault: 2,
             allowed() {
-                return tech.haveGunCheck("spores")
+                return tech.haveGunCheck("Ember")
             },
             requires: "spores",
             effect() {
@@ -5508,7 +5508,7 @@
             frequency: 2,
             frequencyDefault: 2,
             allowed() {
-                return tech.haveGunCheck("spores") || tech.sporesOnDeath > 0 || (m.fieldUpgrades[m.fieldMode].name === "molecular assembler" && simulation.molecularMode === 0) || tech.isSporeWorm || tech.isSporeFlea
+                return tech.haveGunCheck("Ember") || tech.sporesOnDeath > 0 || (m.fieldUpgrades[m.fieldMode].name === "molecular assembler" && simulation.molecularMode === 0) || tech.isSporeWorm || tech.isSporeFlea
             },
             requires: "spores",
             effect() {
@@ -5528,7 +5528,7 @@
             frequency: 2,
             frequencyDefault: 2,
             allowed() {
-                return tech.haveGunCheck("spores") || tech.sporesOnDeath > 0 || (m.fieldUpgrades[m.fieldMode].name === "molecular assembler" && simulation.molecularMode === 0) || tech.isSporeWorm || tech.isSporeFlea
+                return tech.haveGunCheck("Ember") || tech.sporesOnDeath > 0 || (m.fieldUpgrades[m.fieldMode].name === "molecular assembler" && simulation.molecularMode === 0) || tech.isSporeWorm || tech.isSporeFlea
             },
             requires: "spores",
             effect() {
@@ -5548,7 +5548,7 @@
             frequency: 2,
             frequencyDefault: 2,
             allowed() {
-                return (tech.haveGunCheck("spores") || tech.sporesOnDeath > 0 || (m.fieldUpgrades[m.fieldMode].name === "molecular assembler" && simulation.molecularMode === 0)) || tech.isSporeWorm || tech.isSporeFlea
+                return (tech.haveGunCheck("Ember") || tech.sporesOnDeath > 0 || (m.fieldUpgrades[m.fieldMode].name === "molecular assembler" && simulation.molecularMode === 0)) || tech.isSporeWorm || tech.isSporeFlea
             },
             requires: "spores",
             effect() {
@@ -5567,7 +5567,7 @@
             frequency: 3,
             frequencyDefault: 3,
             allowed() {
-                return (tech.haveGunCheck("spores") || tech.sporesOnDeath > 0 || (m.fieldUpgrades[m.fieldMode].name === "molecular assembler" && simulation.molecularMode === 0) || (tech.haveGunCheck("shotgun") && !tech.isIncendiary && !tech.isRivets && !tech.isIceShot && !tech.isFoamShot && !tech.isNeedles && !tech.isNailShot)) && !tech.isSporeWorm
+                return (tech.haveGunCheck("Ember") || tech.sporesOnDeath > 0 || (m.fieldUpgrades[m.fieldMode].name === "molecular assembler" && simulation.molecularMode === 0) || (tech.haveGunCheck("shotgun") && !tech.isIncendiary && !tech.isRivets && !tech.isIceShot && !tech.isFoamShot && !tech.isNeedles && !tech.isNailShot)) && !tech.isSporeWorm
             },
             requires: "spores, not worms",
             effect() {
@@ -5587,7 +5587,7 @@
             frequency: 3,
             frequencyDefault: 3,
             allowed() {
-                return (tech.haveGunCheck("spores") || tech.sporesOnDeath > 0 || (m.fieldUpgrades[m.fieldMode].name === "molecular assembler" && simulation.molecularMode === 0) || (tech.haveGunCheck("shotgun") && !tech.isIncendiary && !tech.isRivets && !tech.isIceShot && !tech.isFoamShot && !tech.isNeedles && !tech.isNailShot)) && !tech.isSporeFlea
+                return (tech.haveGunCheck("Ember") || tech.sporesOnDeath > 0 || (m.fieldUpgrades[m.fieldMode].name === "molecular assembler" && simulation.molecularMode === 0) || (tech.haveGunCheck("shotgun") && !tech.isIncendiary && !tech.isRivets && !tech.isIceShot && !tech.isFoamShot && !tech.isNeedles && !tech.isNailShot)) && !tech.isSporeFlea
             },
             requires: "spores, not fleas",
             effect() {
@@ -5625,7 +5625,7 @@
             frequency: 2,
             frequencyDefault: 2,
             allowed() {
-                return (tech.isSporeFollow && (tech.haveGunCheck("spores") || (tech.haveGunCheck("shotgun") && tech.isSporeWorm))) || tech.haveGunCheck("drones") || (m.fieldUpgrades[m.fieldMode].name === "molecular assembler" && (simulation.molecularMode === 0 || simulation.molecularMode === 3))
+                return (tech.isSporeFollow && (tech.haveGunCheck("spores") || (tech.haveGunCheck("Pull Gun") && tech.isSporeWorm))) || tech.haveGunCheck("drones") || (m.fieldUpgrades[m.fieldMode].name === "molecular assembler" && (simulation.molecularMode === 0 || simulation.molecularMode === 3))
             },
             requires: "spores, worms, flagella, drones",
             effect() {
