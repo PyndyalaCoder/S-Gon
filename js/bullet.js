@@ -6770,8 +6770,8 @@ const b = {
         {
             name: "harpoon", //9
             description: "fire a <strong>self-steering</strong> harpoon that uses <strong class='color-f'>energy</strong><br>to <strong>retract</strong> and refund its <strong class='color-ammo'>ammo</strong> cost",
-            ammo: 0,
-            ammoPack: 0.6, //update this in railgun tech
+            ammo: 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+            ammoPack: 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, //update this in railgun tech
             have: false,
             fire() {},
             do() {},
@@ -6790,12 +6790,12 @@ const b = {
             charge: 0,
             railDo() {
                 if (this.charge > 0) {
-                    const DRAIN = (tech.isRailEnergy ? 0.0005 : 0.002)
+                    const DRAIN = (tech.isRailEnergy ? 0.00005 : 0.002)
                     //exit railgun charging without firing
                     if (m.energy < DRAIN) {
                         // m.energy += 0.025 + this.charge * 22 * this.drain
                         // m.energy -= this.drain
-                        m.fireCDcycle = m.cycle + 120; // cool down if out of energy
+                        m.fireCDcycle = 0
                         this.endCycle = 0;
                         this.charge = 0
                         b.refundAmmo()
@@ -6828,7 +6828,7 @@ const b = {
                                     x: mob[i].position.x,
                                     y: mob[i].position.y,
                                     radius: Math.log(dmg + 1.1) * 40 * mob[i].damageReduction + 3,
-                                    color: 'rgba(100, 0, 200, 0.2)',
+                                    color: 'rgba(0,0,255)',
                                     time: 15
                                 });
                                 mob[i].damage(dmg);
@@ -6858,12 +6858,12 @@ const b = {
                         const recoil = Vector.mult(Vector.normalise(Vector.sub(where, m.pos)), input.down ? 0.03 : 0.06)
                         player.force.x -= recoil.x
                         player.force.y -= recoil.y
-                        tech.harpoonDensity = 0.0065 //0.001 is normal for blocks,  0.004 is normal for harpoon,  0.004*6 when buffed
+                        tech.harpoonDensity = 9
 
                         const harpoonSize = tech.isLargeHarpoon ? 1 + 0.1 * Math.sqrt(this.ammo) : 1
                         if (tech.extraHarpoons) {
                             let targetCount = 0
-                            const SPREAD = 0.06 + 0.05 * (!input.down)
+                            const SPREAD = 3 * (!input.down)
                             let angle = m.angle - SPREAD * tech.extraHarpoons / 2;
                             const dir = { x: Math.cos(angle), y: Math.sin(angle) }; //make a vector for the player's direction of length 1; used in dot product
 
@@ -6921,7 +6921,7 @@ const b = {
                             player.force.x = 0
                             player.force.y = 0
                         }
-                        m.fireCDcycle = m.cycle + 10 //can't fire until mouse is released
+                        m.fireCDcycle = 0
                         const previousCharge = this.charge
                         //small b.fireCDscale = faster shots, b.fireCDscale=1 = normal shot,  big b.fireCDscale = slower chot
                         let smoothRate = tech.isCapacitor ? 0.85 : Math.min(0.998, 0.985 * (0.98 + 0.02 * b.fireCDscale))
@@ -6948,7 +6948,7 @@ const b = {
                                 X - unitVector.x * mag, Y - unitVector.y * mag,
                                 X, Y)
                         }
-                        ctx.fillStyle = `rgba(50,0,100,0.05)`;
+                        ctx.fillStyle = `rgba(0,0,255)`;
                         for (let i = 3; i < 7; i++) {
                             const MAG = 8 * i * i * this.charge * (0.93 + 0.07 * Math.random())
                             const ARC = 6 * i * i * this.charge * (0.93 + 0.07 * Math.random())
@@ -6962,7 +6962,7 @@ const b = {
             },
             railFire() {
                 m.fireCDcycle = m.cycle + 10 //can't fire until mouse is released
-                this.charge += 0.00001
+                this.charge += 1
             },
             grappleFire() {
                 const harpoonSize = (tech.isLargeHarpoon ? 1 + 0.1 * Math.sqrt(this.ammo) : 1) //* (input.down ? 0.7 : 1)
@@ -6990,7 +6990,7 @@ const b = {
                     if (tech.crouchAmmoCount) tech.crouchAmmoCount = 1
                     b.grapple(where, m.angle, harpoonSize)
                 }
-                m.fireCDcycle = m.cycle + Math.floor(75 * b.fireCDscale) // cool down
+                m.fireCDcycle = 0
             },
             harpoonFire() {
                 const where = {
